@@ -1,0 +1,65 @@
+{
+  "name": "Establishment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "coords": {
+      "type": "geopoint"
+    },
+    "logo": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "sayHello": {
+      "accepts": [
+        {
+          "arg": "str",
+          "type": "string",
+          "required": true,
+          "description": "pepe"
+        },
+        {
+          "arg": "languague",
+          "type": "object",
+          "required": false,
+          "description": "no desc",
+          "http": {
+            "source": "form"
+          }
+        },
+        {
+          "arg": "dummy",
+          "type": "geopoint",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [],
+      "description": "It says hello",
+      "http": [
+        {
+          "path": "hello",
+          "verb": "post"
+        },
+        {
+          "path": "helloMan",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}
