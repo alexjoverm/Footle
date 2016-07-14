@@ -32,8 +32,4 @@
     "dataSource": "db",
     "public": false
   },
-  "Establishment": {
-    "dataSource": "mongo",
-    "public": true
-  }
 }
