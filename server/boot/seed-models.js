@@ -41,13 +41,16 @@ module.exports = function seed(app) {
   function initUsers(cb) {
     const data = [{
       email: 'patient@test.com',
-      password: 'test123'
+      password: 'test123',
+      entityId: cEntities[0].id
     }, {
       email: 'doctor@test.com',
-      password: 'test123'
+      password: 'test123',
+      entityId: cEntities[1].id
     }, {
       email: 'admin@test.com',
-      password: 'test123'
+      password: 'test123',
+      entityId: cEntities[0].id
     }, {
       email: 'superadmin@test.com',
       password: 'test123'

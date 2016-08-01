@@ -32,15 +32,21 @@
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "superadmin",
+      "principalId": "entityMemberAdmin",
       "permission": "ALLOW"
     },
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "principalId": "admin",
+      "principalId": "entityMember",
       "permission": "ALLOW",
-      "property": "updateAttributes"
+      "property": "__get__establishments"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "superadmin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
