@@ -33,7 +33,7 @@
     },
     {
       "principalType": "ROLE",
-      "principalId": "$owner",
+      "principalId": "entityAdmin",
       "permission": "ALLOW",
       "property": "role",
       "accessType": "EXECUTE"

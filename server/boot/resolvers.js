@@ -71,7 +71,7 @@ module.exports = function resolvers(app) {
               return resolve(resRole.name)
             }
           }
-          reject('No roles matching')
+          return reject('No roles matching')
         })
       }).catch(err => reject(err))
     })
@@ -96,7 +96,14 @@ module.exports = function resolvers(app) {
     User.findById(userId).then(user => {
       // Check entities. NOTE: user.entityId and modelId are bson, but to compare is ok
       //  - If the raw json value is needed, do it like modelId.toString()
-      cb(null, user.entityId.id === modelId.id)
+      if (context.modelName === 'entity') {
+        cb(null, user.entityId.id === modelId.id)
+      } else {
+        // Check the entity on the parent model (valid for user and establishment)
+        context.model.findById(modelId.toString()).then(res => {
+          cb(null, user.entityId.id === res.entityId.id)
+        }).catch(() => deny(cb))
+      }
     }).catch(() => deny(cb))
 
     return null
@@ -110,13 +117,14 @@ module.exports = function resolvers(app) {
   Role.registerResolver('entityMember', entityMember)
 
   Role.registerResolver('entityAdmin', (role, context, cb) => {
-    entityMember(role, context, allowed => {
+    entityMember(role, context, (err, allowed) => {
       if (allowed) {
         checkRoleAsync(context.accessToken.userId, ['admin'])
           .then(() => cb(null, true))
           .catch(() => deny(cb))
+      } else {
+        deny(cb)
       }
-      deny(cb)
     })
   })
 }

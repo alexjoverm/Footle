@@ -30,17 +30,32 @@
       "permission": "DENY"
     },
     {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "entityMemberAdmin",
-      "permission": "ALLOW"
-    },
-    {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
       "principalId": "entityMember",
       "permission": "ALLOW",
-      "property": "__get__establishments"
+      "property": [
+        "__get__establishments",
+        "__findById__establishments",
+        "__count__establishments"
+      ]
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "entityMemberAdmin",
+      "permission": "ALLOW",
+      "property": [
+        "__create__establishments",
+        "__destroyById__establishments",
+        "__updateById__establishments",
+        "__get__users",
+        "__findById__users",
+        "__count__users",
+        "__create__users",
+        "__destroyById__users",
+        "__updateById__users"
+      ]
     },
     {
       "accessType": "*",
