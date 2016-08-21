@@ -3,6 +3,17 @@ const Roles = require('common/footle/constants').Roles
 
 
 module.exports = function UserModel(User) {
+  /** *****************
+   *    Validations
+   ** *****************/
+
+  User.validatesPresenceOf('entityId')
+
+
+  /** *******************
+   *    REMOTE METHODS
+   ** *******************/
+
   User.prototype.role = function role(cb) {
     // Roles models
     const RoleMapping = app.models.RoleMapping

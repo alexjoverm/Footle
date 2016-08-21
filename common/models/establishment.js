@@ -1,3 +1,3 @@
-module.exports = function(Establishment) {
-
-};
+module.exports = function establishment(Establishment) {
+  Establishment.validatesPresenceOf('entityId')
+}
