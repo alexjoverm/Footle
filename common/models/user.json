@@ -1,0 +1,50 @@
+{
+  "name": "user",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "entity": {
+      "type": "belongsTo",
+      "model": "entity",
+      "foreignKey": ""
+    },
+    "patient": {
+      "type": "hasOne",
+      "model": "patient",
+      "foreignKey": ""
+    },
+    "doctor": {
+      "type": "hasOne",
+      "model": "doctor",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "superadmin",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "entityAdmin",
+      "permission": "ALLOW",
+      "property": "role",
+      "accessType": "EXECUTE"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "profile",
+      "accessType": "EXECUTE"
+    }
+  ],
+  "methods": {}
+}
