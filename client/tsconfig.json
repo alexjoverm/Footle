@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -14,6 +14,12 @@
       "styles/*": ["./src/styles/*"]
     }
   },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "typings/main",
+    "typings/main.d.ts"
+  ],
   "compileOnSave": false,
   "buildOnSave": false
 }

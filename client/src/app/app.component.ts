@@ -5,7 +5,7 @@ import { ApiService } from 'services/api.service'
 import 'styles/app.scss'
 
 @Component({
-  selector: 'my-app', // <my-app></my-app>
+  selector: 'ft-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

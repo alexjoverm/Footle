@@ -1,7 +1,9 @@
 // styles in src/style directory are applied to the whole page
 body {
     background: #0147A7;
-    color: #fff;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
 }
 a {
     color: #03A9F4;

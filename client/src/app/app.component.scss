@@ -1,11 +1,23 @@
+@import '~styles/variables.scss';
+
 // styles applied on :host are applied on the current component, "app" in this case
 :host {
+  color: $color-font;
   display: block;
+
+  // .md-sidenav-opened {
+  //   z-index: 100;
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  // }
 }
 
 header {
   background-color: #fff;
-  padding: 16px;
+  padding: 1rem;
   position: fixed;
   top: 0;
   left: 0;

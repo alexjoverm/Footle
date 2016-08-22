@@ -10,7 +10,7 @@ if (process.env.ENV === 'build') {
 } else {
   // Development
 
-  Error['stackTraceLimit'] = (limit = Infinity) => void
+  // Error.stackTraceLimit = Infinity
 
   require('zone.js/dist/long-stack-trace-zone')
 }
