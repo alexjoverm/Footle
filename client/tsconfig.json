@@ -1,12 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "baseUrl": ".",
+    "paths" : {
+      "app/*": ["./src/app/*"],
+      "components/*": ["./src/app/_shared/components/*"],
+      "services/*": ["./src/app/_shared/services/*"],
+      "styles/*": ["./src/styles/*"]
+    }
   },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "typings/main",
+    "typings/main.d.ts"
+  ],
   "compileOnSave": false,
   "buildOnSave": false
 }

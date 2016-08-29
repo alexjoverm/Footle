@@ -1,8 +1,19 @@
+@import '~normalize.css';
+@import 'theme';
+
+$color-body: $color-gray-brightest;
+
+html, body {
+  height: 100%;
+}
+
 // styles in src/style directory are applied to the whole page
 body {
-    background: #0147A7;
-    color: #fff;
+  font-family: $font-family;
+  font-size: $base-font-size;
+  background: $color-body;
 }
+
 a {
-    color: #03A9F4;
+  color: #03A9F4;
 }
