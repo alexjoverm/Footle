@@ -1,4 +1,4 @@
-// Helper: root() is defined at the bottom
+// Helper: root(), and rootDir() are defined at the bottom
 var path = require('path');
 var webpack = require('webpack');
 
@@ -71,8 +71,11 @@ module.exports = function makeWebpackConfig() {
     // only discover files that have those extensions
     extensions: ['', '.ts', '.js', '.json', '.css', '.scss', '.html'],
     alias: {
-      'app': 'src/app',
-      'common': 'src/common'
+      'app': path.resolve('src/app'),
+      'styles': path.resolve('src/style'),
+      // 'common': 'src/common',
+      'components': path.resolve('src/app/_shared/components'),
+      'services': path.resolve('src/app/_shared/services'),
     }
   };
 
