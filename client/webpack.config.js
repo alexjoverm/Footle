@@ -1,4 +1,4 @@
-// Helper: root(), and rootDir() are defined at the bottom
+// Helper: root() is defined at the bottom
 var path = require('path');
 var webpack = require('webpack');
 
@@ -8,6 +8,7 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 /**
  * Env
@@ -70,11 +71,8 @@ module.exports = function makeWebpackConfig() {
     // only discover files that have those extensions
     extensions: ['', '.ts', '.js', '.json', '.css', '.scss', '.html'],
     alias: {
-      'app': path.resolve('src/app'),
-      'styles': path.resolve('src/style'),
-      // 'common': 'src/common',
-      'components': path.resolve('src/app/_shared/components'),
-      'services': path.resolve('src/app/_shared/services'),
+      'app': 'src/app',
+      'common': 'src/common'
     }
   };
 
@@ -90,7 +88,7 @@ module.exports = function makeWebpackConfig() {
       // Support for .ts files.
       {
         test: /\.ts$/,
-        loaders: ['ts', 'angular2-template-loader'],
+        loaders: ['ts', 'angular2-template-loader', '@angularclass/hmr-loader'],
         exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
       },
 
@@ -166,6 +164,10 @@ module.exports = function makeWebpackConfig() {
       }
     })
   ];
+
+  if (!isTest && !isProd) {
+      config.plugins.push(new DashboardPlugin());
+  }
 
   if (!isTest) {
     config.plugins.push(

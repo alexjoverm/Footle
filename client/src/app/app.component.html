@@ -1,24 +1,17 @@
+<header>
+  <nav>
+    <a [routerLink]="['']">Home</a>
+    <a [routerLink]="['about']">About</a>
+  </nav>
+</header>
+<main>
+  <h1>Hello from {{api.title}}!</h1>
 
+  <!-- Images (and assets) are parsed and loaded from within the public directory -->
+  <img src="/img/angular.png">
 
-<md-sidenav-layout>
-  <md-sidenav class="sidenav" #start [mode]="mode" [opened]="isBigScreen"
-    (open)="sidenavOpened = true" (close)="sidenavOpened = false">
-    <nav>
-      <button [routerLink]="['']">Home</button>
-      <button [routerLink]="['about']">About</button>
-    </nav>
-
-    <button md-button #mybutton *ngIf="!isBigScreen" (click)="start.close()">Close</button>
-  </md-sidenav>
-
-
-  <md-toolbar>
-    <button md-button *ngIf="!isBigScreen" (click)="start.open()">Open</button>
-  </md-toolbar>
-
-
-  <main>
-    <router-outlet></router-outlet>
-  </main>
-
-</md-sidenav-layout>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <a [href]="url">Webpack Angular 2 Starter</a>
+</footer>

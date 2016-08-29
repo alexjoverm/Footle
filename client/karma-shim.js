@@ -1,15 +1,17 @@
 Error.stackTraceLimit = Infinity;
 
-require('es6-shim');
+require('core-js/client/shim');
 require('reflect-metadata');
 
 require('ts-helpers');
 
 require('zone.js/dist/zone');
+require('zone.js/dist/long-stack-trace-zone');
+require('zone.js/dist/proxy');
+require('zone.js/dist/sync-test');
+require('zone.js/dist/jasmine-patch');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
-require('zone.js/dist/sync-test');
-require('zone.js/dist/proxy-zone');
 
 /*
  Ok, this is kinda crazy. We can use the the context method on
