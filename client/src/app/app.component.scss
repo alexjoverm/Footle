@@ -1,29 +1,41 @@
-@import '~styles/variables.scss';
+@import '~styles/theme.scss';
 
 // styles applied on :host are applied on the current component, "app" in this case
 :host {
+  height: 100%;
   color: $color-font;
   display: block;
-
-  // .md-sidenav-opened {
-  //   z-index: 100;
-  //   position: absolute;
-  //   left: 0;
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  // }
 }
 
-header {
-  background-color: #fff;
-  padding: 1rem;
+$toolbar-height: 52px;
+
+md-toolbar {
+  background-color: $color-primary;
+  color: $color-font-inverse;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  min-height: $toolbar-height;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+
+  [md-button] {
+    height: $toolbar-height;
+  }
+
+  /deep/ md-toolbar-row { // /deep/ removes the id appended to md-toolbar-row
+    height: $toolbar-height;
+  }
 }
+
+md-sidenav.sidenav {
+  background: $color-sidebar;
+  color: $color-font-inverse;
+}
+
+md-sidenav-layout {
+  height: 100%;
+}
+
 
 main {
   padding: 1em;
@@ -31,9 +43,4 @@ main {
   text-align: center;
   margin-top: 50px;
   display: block;
-}
-
-footer {
-  text-align: center;
-  font-size: 0.8em;
 }

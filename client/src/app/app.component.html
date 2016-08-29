@@ -1,40 +1,24 @@
+
+
 <md-sidenav-layout>
-  <md-sidenav #start (open)="mybutton.focus()">
+  <md-sidenav class="sidenav" #start [mode]="mode" [opened]="isBigScreen"
+    (open)="sidenavOpened = true" (close)="sidenavOpened = false">
     <nav>
       <button [routerLink]="['']">Home</button>
-      <button [routerLink]="['buttonbout']">About</button>
+      <button [routerLink]="['about']">About</button>
     </nav>
 
-    <button md-button #mybutton (click)="start.close()">Close</button>
+    <button md-button #mybutton *ngIf="!isBigScreen" (click)="start.close()">Close</button>
   </md-sidenav>
 
 
-  <header>
-    <button md-button (click)="start.open()">Open</button>
-  </header>
+  <md-toolbar>
+    <button md-button *ngIf="!isBigScreen" (click)="start.open()">Open</button>
+  </md-toolbar>
 
 
   <main>
-    <h1>Hello from {{api.title}}!</h1>
-
-    <!-- Images (and assets) are parsed and loaded from within the public directory -->
-    <img src="/img/angular.png">
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis necessitatibus, harum minima aperiam, nesciunt voluptates sequi illo ducimus. Suscipit, accusamus!</p>
-    <p>Magnam recusandae voluptatem voluptates vel velit sequi quasi. Harum ipsa molestiae nobis at suscipit similique! Recusandae reiciendis porro possimus, quaerat!</p>
-    <p>Iure eius aut veritatis deleniti alias tenetur saepe ab quaerat officia dolores. Dignissimos sit, temporibus, architecto voluptatem in aliquam fugit?</p>
-    <p>Omnis repudiandae quae excepturi velit temporibus labore, illum quis, maiores, vero voluptates ipsa. Maxime harum, quibusdam sequi accusamus dolor animi!</p>
-    <p>Harum necessitatibus, repudiandae maiores perspiciatis magni, laborum placeat quia provident illo aliquid cumque, iusto nam consectetur delectus voluptatibus, cum nostrum.</p>
-    <p>Quam fugiat quisquam eius natus reiciendis officia, sapiente voluptas eos pariatur quis harum magnam tempora, explicabo esse, earum distinctio optio!</p>
-    <p>Neque ullam alias eveniet excepturi atque, natus facilis maiores perspiciatis inventore quia, corporis sed in, ipsa tenetur nam quisquam dignissimos.</p>
-    <p>Rem ad mollitia velit sequi, id deleniti facere nulla dicta reprehenderit ipsam, optio qui suscipit alias. Odit qui esse, reiciendis!</p>
-    <p>Facere quod cumque quae voluptates ipsa impedit, porro soluta esse tempore nisi odit aperiam, fuga architecto est maxime repudiandae ipsam.</p>
-    <p>Quas saepe, fugiat adipisci rerum repellendus quibusdam earum ullam ab, incidunt eius fuga animi doloremque consequuntur quia quis quidem perferendis.</p>
-
     <router-outlet></router-outlet>
   </main>
-  <footer>
-    <a [href]="url">Webpack Angular 2 Starter</a>
-  </footer>
 
 </md-sidenav-layout>

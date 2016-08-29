@@ -20,6 +20,7 @@
     "ci": "npm run e2e && npm run test",
     "docs": "typedoc --options typedoc.json src/app/app.component.ts",
     "start": "npm run server",
+    "start:hmr": "npm run server -- --hot",
     "postinstall": "npm run webdriver-update && typings install"
   },
   "dependencies": {
@@ -56,6 +57,8 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "@angularclass/hmr": "^1.0.1",
+    "@angularclass/hmr-loader": "^1.0.0",
     "angular2-template-loader": "^0.4.0",
     "autoprefixer": "^6.3.2",
     "codelyzer": "0.0.26",
@@ -79,6 +82,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "1.7.0",
     "node-sass": "^3.4.2",
+    "normalize.css": "^4.2.0",
     "null-loader": "0.1.1",
     "phantomjs-prebuilt": "^2.1.4",
     "postcss-loader": "^0.9.1",
