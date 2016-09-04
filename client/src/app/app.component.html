@@ -1,19 +1,19 @@
 
 
 <md-sidenav-layout>
-  <md-sidenav class="sidenav" #start [mode]="mode" [opened]="isBigScreen"
-    (open)="sidenavOpened = true" (close)="sidenavOpened = false">
+  <md-sidenav class="sidenav" #start [mode]="mode" [opened]="(isBigScreen$ | async)"
+    (open)="sidenavOpened(true)" (close)="sidenavOpened(false)">
     <nav>
       <button [routerLink]="['']">Home</button>
       <button [routerLink]="['about']">About</button>
     </nav>
 
-    <button md-button #mybutton *ngIf="!isBigScreen" (click)="start.close()">Close</button>
+    <button md-button #mybutton *ngIf="!(isBigScreen$ | async)" (click)="start.close()">Close</button>
   </md-sidenav>
 
 
   <md-toolbar>
-    <button md-button *ngIf="!isBigScreen" (click)="start.open()">Open</button>
+    <button md-button *ngIf="!(isBigScreen$ | async)" (click)="start.open()">Open</button>
   </md-toolbar>
 
 

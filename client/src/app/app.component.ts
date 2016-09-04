@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
-import { MediumScreen } from 'app/_shared/constants'
+import { Store } from '@ngrx/store'
+import { MediumScreen } from 'utils/constants'
 
-import { ApiService } from 'services/api.service'
+import { RootState } from 'store/reducers' // @todo REFACTOR!
+import { AppActions } from 'store/actions/app'
 
 import 'styles/app.scss'
 
@@ -12,29 +14,50 @@ import 'styles/app.scss'
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  mode = null
   isBigScreen = false
-  _sidenavOpened = false
 
-  constructor(private api: ApiService) {
-    // Do something with api
+  sidenavOpen$: Observable <boolean>
+  isBigScreen$: Observable <boolean>
+  size$: Observable<any>
+
+  constructor(private store: Store<RootState>, private appActions: AppActions) {
     Observable.fromEvent(window, 'resize')
-      .map(() => ({
-        width: window.innerWidth,
-        height: window.innerHeight
-      }))
+      .debounceTime(200) // Don't trigger continuous actions
       .subscribe(size => {
-        this.isBigScreen = window.innerWidth > MediumScreen
+        this.store.dispatch(this.appActions.setWindowSize())
+      })
+
+      // size Observable
+      this.size$ = store.select(s => s.app.windowSize)
+      this.size$.subscribe(size => {
+        // setBigScreen when surpases the breakpoint
+        const newBigScreen = size.width > MediumScreen
+        if (this.isBigScreen !== newBigScreen) {
+          this.store.dispatch(this.appActions.setBigScreen(
+            newBigScreen
+          ))
+        }
+      })
+
+      // isBigScreen Observable
+      this.isBigScreen$ = store.select(s => s.app.isBigScreen)
+      this.isBigScreen$.subscribe(isBigScreen => {
+        this.mode = isBigScreen ? 'side' : 'over'
+        this.isBigScreen = isBigScreen
+        // When setBigScreen changes, change sidenavOpen
+        this.store.dispatch(this.appActions.setSidenavOpen(
+          isBigScreen
+        ))
       })
   }
 
   ngOnInit() {
-    this.isBigScreen = window.innerWidth > MediumScreen
-    this._sidenavOpened = this.isBigScreen
+    this.appActions.setWindowSize()
   }
 
-  set sidenavOpened(value) {
-    console.log(value)
-    this._sidenavOpened = value
+  sidenavOpened(value) {
+    this.store.dispatch(this.appActions.setSidenavOpen(value))
   }
 
 }

@@ -6,8 +6,17 @@ import '@angular/common'
 import '@angular/http'
 import '@angular/router'
 
-import 'rxjs'
+
 import '@angularclass/hmr'
+
+// rxjs
+import 'rxjs/add/observable/fromEvent'
+import '@ngrx/core/add/operator/select'
+import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/let'
+import 'rxjs/add/operator/debounceTime'
+import 'rxjs/add/operator/do'
+
 
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...

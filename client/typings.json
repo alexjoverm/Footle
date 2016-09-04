@@ -4,6 +4,6 @@
   },
   "globalDependencies": {
     "core-js": "registry:dt/core-js#0.0.0+20160725163759",
-    "node": "registry:dt/node#4.0.0+20160501135006"
+    "node": "registry:env/node#6.0.0+20160825160117"
   }
 }

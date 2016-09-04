@@ -71,11 +71,15 @@ module.exports = function makeWebpackConfig() {
     // only discover files that have those extensions
     extensions: ['', '.ts', '.js', '.json', '.css', '.scss', '.html'],
     alias: {
-      'app': path.resolve('src/app'),
-      'styles': path.resolve('src/style'),
-      // 'common': 'src/common',
-      'components': path.resolve('src/app/_shared/components'),
-      'services': path.resolve('src/app/_shared/services'),
+      'app':        path.resolve('src/app'),
+      'styles':     path.resolve('src/style'),
+      // 'common':  'src/common',
+      'containers': path.resolve('src/app/containers'),
+      'components': path.resolve('src/app/components'),
+      'models':     path.resolve('src/app/models'),
+      'services':   path.resolve('src/app/services'),
+      'store':      path.resolve('src/app/store'),
+      'utils':      path.resolve('src/app/utils'),
     }
   };
 
