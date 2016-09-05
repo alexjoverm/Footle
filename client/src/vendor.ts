@@ -13,9 +13,9 @@ import '@angularclass/hmr'
 import 'rxjs/add/observable/fromEvent'
 import '@ngrx/core/add/operator/select'
 import 'rxjs/add/operator/switchMap'
-import 'rxjs/add/operator/let'
 import 'rxjs/add/operator/debounceTime'
-import 'rxjs/add/operator/do'
+// import 'rxjs/add/operator/let'
+// import 'rxjs/add/operator/do'
 
 
 // Other vendors for example jQuery, Lodash or Bootstrap
