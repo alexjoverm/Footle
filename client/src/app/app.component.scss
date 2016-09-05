@@ -7,36 +7,6 @@
   display: block;
 }
 
-$toolbar-height: 52px;
-
-md-toolbar {
-  background-color: $color-primary;
-  color: $color-font-inverse;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  min-height: $toolbar-height;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-
-  [md-button] {
-    height: $toolbar-height;
-  }
-
-  /deep/ md-toolbar-row { // /deep/ removes the id appended to md-toolbar-row
-    height: $toolbar-height;
-  }
-}
-
-md-sidenav.sidenav {
-  background: $color-sidebar;
-  color: $color-font-inverse;
-}
-
-md-sidenav-layout {
-  height: 100%;
-}
-
-
 main {
   padding: 1em;
   font-family: Arial, Helvetica, sans-serif;

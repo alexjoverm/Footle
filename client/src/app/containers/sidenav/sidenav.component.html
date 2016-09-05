@@ -1,0 +1,19 @@
+<md-sidenav-layout>
+
+  <md-sidenav #sidenav class="sidenav" [mode]="mode" [opened]="(isBigScreen$ | async)"
+(open)="setSidenavOpen(true)" (close)="setSidenavOpen(false)">
+    <md-nav-list>
+      <a md-list-item [routerLink]="['']">Home</a>
+      <a md-list-item [routerLink]="['about']">About</a>
+    </md-nav-list>
+    <!--<nav>
+      <button [routerLink]="['']">Home</button>
+      <button [routerLink]="['about']">About</button>
+    </nav>-->
+
+    <button md-button *ngIf="!(isBigScreen$ | async)" (click)="sidenav.close()">Close</button>
+  </md-sidenav>
+
+  <ng-content></ng-content>
+
+</md-sidenav-layout>

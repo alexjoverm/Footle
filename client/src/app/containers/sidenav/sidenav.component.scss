@@ -1,0 +1,10 @@
+@import '~styles/theme.scss';
+
+md-sidenav.sidenav {
+  background: $color-sidebar;
+  color: $color-font-inverse;
+}
+
+md-sidenav-layout {
+  height: 100%;
+}
