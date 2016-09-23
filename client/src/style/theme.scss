@@ -1,0 +1,34 @@
+@import 'variables';
+
+//************* THEME *************/
+
+//*** COLORS ***/
+// $color-primary: #149AC3;
+$color-primary: #009688;
+$color-complementary: #C36100;
+
+$body-color: $color-gray-brighter;
+
+//*** FONTS ***/
+$font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-base-size: 16px;
+$font-color: $color-gray-darker;
+$font-color-inverse: white;
+
+//*** TOOLBAR ***/
+$toolbar-height: $height-m;
+$toolbar-color: $color-primary;
+$toolbar-font-color: $font-color-inverse;
+
+//*** SIDEBAR ***/
+$sidenav-width: 180px;
+
+$sidenav-color: $color-gray-brightest;
+$sidenav-font-color: $color-gray-darker;
+$sidenav-header-color: $color-primary;
+$sidenav-header-font-color: $font-color-inverse;
+
+$sidenav-header-height: $toolbar-height;
+
+
+

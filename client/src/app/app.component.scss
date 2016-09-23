@@ -1,0 +1,16 @@
+@import '~styles/theme.scss';
+
+// styles applied on :host are applied on the current component, "app" in this case
+:host {
+  height: 100%;
+  color: $font-color;
+  display: block;
+}
+
+main {
+  padding: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  display: block;
+}
