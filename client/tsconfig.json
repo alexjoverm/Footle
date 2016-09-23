@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noEmitHelpers": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths" : {
+      "app/*":        ["./src/app/*"],
+      "modules/*":    ["./src/app/modules/*"],
+      "components/*": ["./src/app/components/*"],
+      "models/*":     ["./src/app/models/*"],
+      "services/*":   ["./src/app/services/*"],
+      "store/*":      ["./src/app/store/*"],
+      "styles/*":     ["./src/styles/*"],
+      "utils/*":      ["./src/app/utils/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "typings/main",
+    "typings/main.d.ts"
+  ],
+  "types": [
+    "hammerjs"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

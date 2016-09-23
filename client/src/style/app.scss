@@ -1,0 +1,21 @@
+@import '~normalize.css';
+@import 'theme';
+
+html, body {
+  height: 100%;
+}
+
+// styles in src/style directory are applied to the whole page
+body {
+  font-family: $font-family;
+  font-size: $font-base-size;
+  background: $body-color;
+}
+
+a {
+  color: $color-primary;
+}
+
+div, aside, header, footer, main {
+  box-sizing: border-box;
+}

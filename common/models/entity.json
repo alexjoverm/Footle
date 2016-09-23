@@ -1,0 +1,68 @@
+{
+  "name": "entity",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "user"
+    },
+    "establishments": {
+      "type": "hasMany",
+      "model": "establishment"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "entityMember",
+      "permission": "ALLOW",
+      "property": [
+        "__get__establishments",
+        "__findById__establishments",
+        "__count__establishments"
+      ]
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "entityMemberAdmin",
+      "permission": "ALLOW",
+      "property": [
+        "__create__establishments",
+        "__destroyById__establishments",
+        "__updateById__establishments",
+        "__get__users",
+        "__findById__users",
+        "__count__users",
+        "__create__users",
+        "__destroyById__users",
+        "__updateById__users"
+      ]
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "superadmin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
