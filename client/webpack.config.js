@@ -74,7 +74,7 @@ module.exports = function makeWebpackConfig() {
       'app':        path.resolve('src/app'),
       'styles':     path.resolve('src/style'),
       // 'common':  'src/common',
-      'containers': path.resolve('src/app/containers'),
+      'modules':    path.resolve('src/app/modules'),
       'components': path.resolve('src/app/components'),
       'models':     path.resolve('src/app/models'),
       'services':   path.resolve('src/app/services'),

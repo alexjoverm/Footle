@@ -2,6 +2,13 @@
 
   <md-sidenav #sidenav class="sidenav" [mode]="mode" [opened]="(isBigScreen$ | async)"
 (open)="setSidenavOpen(true)" (close)="setSidenavOpen(false)">
+    <header class="sidenav-header">
+      <img src="/img/angular.png">
+      <h1>Footle</h1>
+    </header>
+    <div class="search-box-container">
+      <ft-search-box></ft-search-box>
+    </div>
     <md-nav-list>
       <a md-list-item [routerLink]="['']">Home</a>
       <a md-list-item [routerLink]="['about']">About</a>

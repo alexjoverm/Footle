@@ -1,0 +1,29 @@
+@import '~styles/theme';
+
+$sidenav-header-padding: 10px;
+
+md-sidenav.sidenav {
+  width: $sidenav-width;
+  background: $sidenav-color;
+  color: $sidenav-font-color;
+
+  header.sidenav-header {
+    padding: $sidenav-header-padding;
+    background: $sidenav-header-color;
+    color: $sidenav-header-font-color;
+    height: $sidenav-header-height;
+    display: flex;
+    align-items: center;
+
+    h1 { margin: 0; }
+    img { width: 50px; }
+  }
+}
+
+md-sidenav-layout {
+  height: 100%;
+}
+
+.search-box-container {
+  padding-top: 8px;
+}

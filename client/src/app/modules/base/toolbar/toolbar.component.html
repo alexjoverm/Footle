@@ -1,3 +1,5 @@
 <md-toolbar>
   <button md-button *ngIf="!(isBigScreen$ | async)" (click)="openSidenav()">Open</button>
+  <ft-search-box class="search-box" *ngIf="false" (select)="onSearch(value)">
+      </ft-search-box>
 </md-toolbar>

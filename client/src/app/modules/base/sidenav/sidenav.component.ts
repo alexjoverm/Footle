@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core'
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
+import { Subscription } from 'rxjs/Subscription'
 import { Store } from '@ngrx/store'
 
 import { MediumScreen } from 'utils/constants'
@@ -11,18 +12,21 @@ import { AppActions } from 'store/actions/app'
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent implements OnInit, OnDestroy {
   mode = null
   isBigScreen = false
 
-  sidenavOpen$: Observable <boolean>
-  isBigScreen$: Observable <boolean>
+  isBigScreen$: Observable<boolean>
   size$: Observable<any>
+
+  resizeSubs: Subscription
+  isBigScreenSubs: Subscription
+  sizeSubs: Subscription
 
   @ViewChild('sidenav') mdSidenavCmp
 
   constructor(private store: Store<RootState>, private appActions: AppActions) {
-    Observable.fromEvent(window, 'resize')
+    this.resizeSubs = Observable.fromEvent(window, 'resize')
       .debounceTime(200) // Don't trigger continuous actions
       .subscribe(size => {
         this.store.dispatch(this.appActions.setWindowSize())
@@ -30,7 +34,7 @@ export class SidenavComponent implements OnInit {
 
     // size Observable
     this.size$ = store.select(s => s.app.windowSize)
-    this.size$.subscribe(size => {
+    this.sizeSubs = this.size$.subscribe(size => {
       // setBigScreen when surpases the breakpoint
       const newBigScreen = size.width > MediumScreen
       if (this.isBigScreen !== newBigScreen) {
@@ -42,9 +46,11 @@ export class SidenavComponent implements OnInit {
 
     // isBigScreen Observable
     this.isBigScreen$ = store.select(s => s.app.isBigScreen)
-    this.isBigScreen$.subscribe(isBigScreen => {
+    this.isBigScreenSubs = this.isBigScreen$.subscribe(isBigScreen => {
       this.mode = isBigScreen ? 'side' : 'over'
       this.isBigScreen = isBigScreen
+      console.log(this.mode)
+      console.log(this.isBigScreen)
 
       // When setBigScreen changes, change sidenavOpen
       this.store.dispatch(this.appActions.setSidenavOpen(
@@ -54,7 +60,13 @@ export class SidenavComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appActions.setWindowSize()
+    this.store.dispatch(this.appActions.setWindowSize())
+  }
+
+  ngOnDestroy() {
+    this.resizeSubs.unsubscribe()
+    this.isBigScreenSubs.unsubscribe()
+    this.sizeSubs.unsubscribe()
   }
 
   /**

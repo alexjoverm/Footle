@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core'
-import { SidenavComponent } from 'containers/sidenav/sidenav.component'
+import { SidenavComponent } from 'modules/base/sidenav/sidenav.component'
 
 import 'styles/app.scss'
 
@@ -12,12 +12,9 @@ export class AppComponent {
 
   @ViewChild(SidenavComponent) sidenavCmp: SidenavComponent
 
-
   constructor() {}
 
   openSidenav() {
-    console.log(SidenavComponent)
-    console.log(this.sidenavCmp)
     this.sidenavCmp.open()
   }
 

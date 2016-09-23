@@ -10,7 +10,7 @@
     "baseUrl": ".",
     "paths" : {
       "app/*":        ["./src/app/*"],
-      "containers/*": ["./src/app/containers/*"],
+      "modules/*":    ["./src/app/modules/*"],
       "components/*": ["./src/app/components/*"],
       "models/*":     ["./src/app/models/*"],
       "services/*":   ["./src/app/services/*"],
@@ -24,6 +24,9 @@
     "dist",
     "typings/main",
     "typings/main.d.ts"
+  ],
+  "types": [
+    "hammerjs"
   ],
   "compileOnSave": false,
   "buildOnSave": false

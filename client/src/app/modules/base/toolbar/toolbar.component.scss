@@ -1,14 +1,14 @@
-@import '~styles/theme.scss';
-$toolbar-height: 52px;
+@import '~styles/theme';
 
 md-toolbar {
-  background-color: $color-primary;
-  color: $color-font-inverse;
+  display: flex;
+  background-color: $toolbar-color;
+  color: $toolbar-font-color;
   position: fixed;
   top: 0;
   width: 100%;
   min-height: $toolbar-height;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  // box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 
   [md-button] {
     height: $toolbar-height;
@@ -16,5 +16,9 @@ md-toolbar {
 
   /deep/ md-toolbar-row { // /deep/ removes the id appended to md-toolbar-row
     height: $toolbar-height;
+  }
+
+  .search-box {
+    flex: 0 0 50%;
   }
 }

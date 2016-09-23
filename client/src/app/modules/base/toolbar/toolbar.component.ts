@@ -18,7 +18,6 @@ export class ToolbarComponent {
 
     // isBigScreen Observable
     this.isBigScreen$ = store.select(s => s.app.isBigScreen)
-    this.isBigScreen$.subscribe()
   }
 
   openSidenav() {
