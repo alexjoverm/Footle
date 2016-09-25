@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "faker": "name.findName"
+    },
+    "email": {
+      "faker": "internet.email"
+    },
+    "avatar": {
+      "faker": "image.avatar"
+    },
+    "role": "admin"
+  },
+  "required": [
+    "id",
+    "name",
+    "email",
+    "avatar",
+    "role"
+  ]
+}
