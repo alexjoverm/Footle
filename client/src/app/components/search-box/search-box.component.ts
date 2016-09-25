@@ -31,7 +31,7 @@ export class SearchBoxComponent {
    */
   search(value) {
     console.log('search', value)
-    this.results$ = this.apiService.searchUsers(value)
+    this.results$ = this.apiService.search(value)
   }
 
   select(item) {

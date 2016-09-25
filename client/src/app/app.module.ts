@@ -18,6 +18,7 @@ import { routing }      from './app.routing'
 
 // Modules
 import { BaseModule } from 'modules/base/base.module'
+import { CustomerModule } from 'modules/customer/customer.module'
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { BaseModule } from 'modules/base/base.module'
 
     // Modules
     BaseModule,
+    CustomerModule
   ],
   declarations: [
     // Containers

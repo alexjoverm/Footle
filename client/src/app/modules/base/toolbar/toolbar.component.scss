@@ -12,6 +12,7 @@ md-toolbar {
 
   [md-button] {
     height: $toolbar-height;
+    background: $color-primary;
   }
 
   /deep/ md-toolbar-row { // /deep/ removes the id appended to md-toolbar-row

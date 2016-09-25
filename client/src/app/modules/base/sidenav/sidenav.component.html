@@ -13,10 +13,6 @@
       <a md-list-item [routerLink]="['']">Home</a>
       <a md-list-item [routerLink]="['about']">About</a>
     </md-nav-list>
-    <!--<nav>
-      <button [routerLink]="['']">Home</button>
-      <button [routerLink]="['about']">About</button>
-    </nav>-->
 
     <button md-button *ngIf="!(isBigScreen$ | async)" (click)="sidenav.close()">Close</button>
   </md-sidenav>

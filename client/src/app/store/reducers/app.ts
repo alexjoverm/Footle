@@ -1,5 +1,6 @@
-import { Observable } from 'rxjs/Observable'
+// import { Observable } from 'rxjs/Observable'
 import { Action } from '@ngrx/store'
+import { IUser } from 'interfaces/user'
 
 import { AppActions } from '../actions/app'
 
@@ -7,13 +8,15 @@ import { AppActions } from '../actions/app'
 export interface AppState {
   windowSize: { width: number, height: number },
   isBigScreen: boolean,
-  isOpen: boolean
+  isOpen: boolean,
+  currentUser: IUser
 }
 
 const initialState: AppState = {
   windowSize: { width: 0, height: 0 },
   isBigScreen: false,
-  isOpen: false
+  isOpen: false,
+  currentUser: null
 }
 
 
@@ -31,6 +34,10 @@ export const appReducer = (state = initialState, action: Action): AppState => {
     case AppActions.SET_SIDENAV_OPEN: {
       const isOpen = action.payload
       return Object.assign({}, state, { isOpen })
+    }
+    case AppActions.SET_CURRENT_USER: {
+      const currentUser = action.payload
+      return Object.assign({}, state, { currentUser })
     }
 
     default: {

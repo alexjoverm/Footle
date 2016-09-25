@@ -10,9 +10,10 @@
     "baseUrl": ".",
     "paths" : {
       "app/*":        ["./src/app/*"],
-      "modules/*":    ["./src/app/modules/*"],
       "components/*": ["./src/app/components/*"],
+      "interfaces/*": ["./src/app/interfaces/*"],
       "models/*":     ["./src/app/models/*"],
+      "modules/*":    ["./src/app/modules/*"],
       "services/*":   ["./src/app/services/*"],
       "store/*":      ["./src/app/store/*"],
       "styles/*":     ["./src/styles/*"],

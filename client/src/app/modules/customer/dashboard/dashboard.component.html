@@ -1,0 +1,12 @@
+<section class="appointments">
+  <h3 class="title">Appointments</h3>
+  <article class="appointment"
+    *ngFor="let appointment of appointments$ | async">
+    <h4>{{appointment.description}}</h4>
+    <p>{{appointment.customerId}}</p>
+    <p>{{appointment.employeeId}}</p>
+    <p>{{appointment.created | date:"dd/MM/yy"}}</p>
+    <p></p>
+  </article>
+  <button md-button routerLink="create-dashboard">New appointment</button>
+</section>

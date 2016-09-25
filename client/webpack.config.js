@@ -72,13 +72,14 @@ module.exports = function makeWebpackConfig() {
     extensions: ['', '.ts', '.js', '.json', '.css', '.scss', '.html'],
     alias: {
       'app':        path.resolve('src/app'),
-      'styles':     path.resolve('src/style'),
       // 'common':  'src/common',
-      'modules':    path.resolve('src/app/modules'),
       'components': path.resolve('src/app/components'),
+      'interfaces': path.resolve('src/app/interfaces'),
       'models':     path.resolve('src/app/models'),
+      'modules':    path.resolve('src/app/modules'),
       'services':   path.resolve('src/app/services'),
       'store':      path.resolve('src/app/store'),
+      'styles':     path.resolve('src/style'),
       'utils':      path.resolve('src/app/utils'),
     }
   };
