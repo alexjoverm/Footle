@@ -1,10 +1,6 @@
 import { Component, ViewChild } from '@angular/core'
-import { SidenavComponent } from 'modules/base/sidenav/sidenav.component'
-import { ApiService } from 'services/api.service'
-
-import { Store } from '@ngrx/store'
-import { RootState } from 'store/reducers'
-import { AppActions } from 'store/actions/app'
+import { SidenavComponent } from 'containers/sidenav/sidenav.component'
+import { Observable } from 'rxjs/Observable'
 
 import 'styles/app.scss'
 
@@ -15,15 +11,13 @@ import 'styles/app.scss'
 })
 export class AppComponent {
 
-  @ViewChild(SidenavComponent) sidenavCmp: SidenavComponent
+  @ViewChild(SidenavComponent) sidenavCmp:SidenavComponent
 
-  constructor(private store: Store<RootState>, private appActions: AppActions, private apiService: ApiService) {
-    this.apiService.getCurrentUser().subscribe(user => {
-      this.store.dispatch(this.appActions.setCurrentUser(user))
-    })
-  }
+  constructor() {}
 
   openSidenav() {
+    console.log(SidenavComponent)
+    // console.log(this.sidenavCmp)
     this.sidenavCmp.open()
   }
 

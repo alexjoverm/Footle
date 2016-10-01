@@ -1,40 +1,64 @@
 import { NgModule, ApplicationRef }       from '@angular/core'
+import { BrowserModule }  from '@angular/platform-browser'
+import { HttpModule }     from '@angular/http'
+import { FormsModule }    from '@angular/forms'
 
 import { StoreModule } from '@ngrx/store'
+
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr'
+
+import { MdCardModule }    from '@angular2-material/card'
+import { MdButtonModule }  from '@angular2-material/button'
+import { MdSidenavModule } from '@angular2-material/sidenav'
+import { MdListModule }    from '@angular2-material/list'
+import { MdToolbarModule } from '@angular2-material/toolbar'
+import { MdInputModule } from '@angular2-material/input'
 
 // Store
 import { rootReducer } from 'store/reducers'
 import { AppActions } from 'store/actions/app'
 
-// Services
-import { ApiService } from 'services/api.service'
-
 // Containers
-import { AppComponent } from './app.component'
+import { AppComponent }   from './app.component'
+import { HomeComponent }  from 'containers/home/home.component'
+import { AboutComponent } from 'containers/about/about.component'
+import { SidenavComponent } from 'containers/sidenav/sidenav.component'
+import { ToolbarComponent } from 'containers/toolbar/toolbar.component'
 
-// Routing
-import { routing }      from './app.routing'
+// Components
+import { SearchBoxComponent } from 'components/search-box/search-box.component'
 
-// Modules
-import { BaseModule } from 'modules/base/base.module'
-import { CustomerModule } from 'modules/customer/customer.module'
+import { ApiService } from 'services/api.service'
+import { routing }    from './app.routing'
 
 @NgModule({
   imports: [
     StoreModule.provideStore(rootReducer),
-    routing,
+    BrowserModule,
+    HttpModule,
+    FormsModule,
 
-    // Modules
-    BaseModule,
-    CustomerModule
+    MdToolbarModule,
+    MdCardModule,
+    MdButtonModule,
+    MdSidenavModule,
+    MdListModule,
+    MdInputModule,
+
+    routing
   ],
   declarations: [
     // Containers
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    SidenavComponent,
+    ToolbarComponent,
+
+    // Components
+    SearchBoxComponent
   ],
   providers: [
-    // Services
     ApiService,
 
     // Actions

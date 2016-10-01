@@ -8,8 +8,6 @@ import '@angular/router'
 
 import '@angularclass/hmr'
 
-import 'hammerjs'
-
 // rxjs
 import 'rxjs/add/observable/fromEvent'
 import '@ngrx/core/add/operator/select'
@@ -17,7 +15,6 @@ import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/debounceTime'
 import 'rxjs/add/operator/combineLatest'
-import 'rxjs/add/operator/filter'
 import 'rxjs/add/observable/of'
 import 'rxjs/add/observable/empty'
 // import 'rxjs/add/operator/let'

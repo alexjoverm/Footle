@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable'
+
 /**
  * The compose function is one of our most handy tools. In basic terms, you give
  * it any number of functions and it returns a function. This new function
